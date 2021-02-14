@@ -1,0 +1,8 @@
+pandas
+pymysql
+cryptography
+google-api-python-client
+isodate
+youtube_transcript_api
+textblob
+nltk

@@ -1,0 +1,31 @@
+version: '3.2'
+
+services:
+  youtubesubssentiment:
+    depends_on:
+      - mysql
+    command: ["./wait-for-it.sh", "mysql:3306", "--", "python3", "app.py"]
+    image: georgioskarmoiris/youtube-subs-sentiment
+    container_name: youtube
+    links:
+      - mysql:mysql
+
+  mysql:
+    image: mysql:8.0
+    container_name: mysql
+    restart: always
+    ports:
+     - '3306:3306'
+    environment:
+      MYSQL_ROOT_PASSWORD: helloworld
+
+  phpmyadmin:
+    depends_on:
+     - mysql
+    image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin
+    restart: always
+    ports:
+     - '8080:80'
+    environment:
+      PMA_HOST: mysql
