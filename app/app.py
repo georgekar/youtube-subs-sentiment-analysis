@@ -40,7 +40,7 @@ def close_mysql_connection():
 
 
 def setup_youtube_api_client():
-    return build('youtube', 'v3', developerKey='AIzaSyAnqYouagd6FKN-8Gd71yMxgJDiXLFiHUw')
+    return build('youtube', 'v3', developerKey='<Youtube API key>')
 
 
 def get_search_results():
